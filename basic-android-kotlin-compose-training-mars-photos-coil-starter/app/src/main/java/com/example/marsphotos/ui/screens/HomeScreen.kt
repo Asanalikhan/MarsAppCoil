@@ -28,6 +28,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -86,8 +87,10 @@ fun MarsPhotoCard(photo: MarsPhoto, modifier: Modifier = Modifier) {
             .data(photo.imgSrc)
             .crossfade(true)
             .build(),
+        error = painterResource(R.drawable.ic_broken_image),
+        placeholder = painterResource(R.drawable.loading_img),
         contentDescription = stringResource(R.string.mars_photo),
-        modifier = Modifier.fillMaxWidth()
+        contentScale = ContentScale.Crop
     )
 }
 
